@@ -11,6 +11,6 @@ public class Test001 {
         /*for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
         }*/
-        //applicationContext.close();
+        applicationContext.close();
     }
 }
