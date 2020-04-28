@@ -1,0 +1,13 @@
+org.springframework.context.support.GenericApplicationContext.GenericApplicationContext() 初始化DefaultListableBeanFactory
+》org.springframework.context.annotation.AnnotationConfigApplicationContext 初始化AnnotatedBeanDefinitionReader
+》》org.springframework.context.annotation.AnnotatedBeanDefinitionReader doRegisterBean进行注册Bean操作
+》》》doRegisterBean 中将Class 文件设置到 AnnotatedGenericBeanDefinition 中
+》》》》doRegisterBean 中 设置bean的scope
+》》》》》doRegisterBean 中 生成/获取 beanName
+》》》》》》AnnotationConfigUtils.processCommonDefinitionAnnotations(abd); 检验注解，是否包含其中的注解进行对应的处理
+》》》》》》》doRegisterBean 中 封装BeanDefinitionHolder其中包含 BeanDefinition 和 beanName
+》》》》》》》》BeanDefinitionReaderUtils.registerBeanDefinition(definitionHolder, this.registry); this.registry 是AnnotationConfigApplicationContext
+》》》》》》》》》registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition()); 此时会进入GenericApplicationContext 中的registerBeanDefinition
+》》》》》》》》》》this.beanFactory.registerBeanDefinition(beanName, beanDefinition); 此时的beanFactory 为DefaultListableBeanFactory 进而调用到registerBeanDefinition 方法
+》》》》》》》》》》》然后放入线程安全的map中，清除缓存。
+

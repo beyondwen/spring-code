@@ -1,0 +1,15 @@
+org.springframework.context.support.AbstractApplicationContext.refresh()方法
+》org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization()方法
+》》finishBeanFactoryInitialization()中的 beanFactory.preInstantiateSingletons();实例化所有的 未被设置为懒加载的 单例类
+》》》beanFactory.preInstantiateSingletons() 该方法会到 DefaultListableBeanFactory 中去，通过 getBean方法获取对应的单例类，如果未获取到，则会调用创建创建bean方法
+》》》》org.springframework.beans.factory.support.AbstractBeanFactory.createBean 会判断是否是单例类
+》》》》》doCreateBean(beanName, mbdToUse, args); 调用此方法会创建一个实例
+》》》》》》populateBean(beanName, mbd, instanceWrapper); 调用此方法设置bean的属性值
+》》》》》》》initializeBean(beanName, exposedObject, mbd);调用此方法初始化bean
+》》》》》》》》invokeAwareMethods(beanName, bean);调用Aware的方法 如果该类实现了对应的接口的话
+》》》》》》》》》接着调用该方法 applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName); 在bean中初始化方法之前 调用BeanPostProcessors的方法
+》》》》》》》》》》然后调用 bean 中的初始化方法 invokeInitMethods(beanName, wrappedBean, mbd);
+》》》》》》》》》》》接着调用该方法 applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);在bean中初始化方法之后 调用BeanPostProcessors的方法
+》》》》》》》》》》》》然后注册自定义销毁方法registerDisposableBeanIfNecessary(beanName, bean, mbd);
+》》》》》》》》》》》》》调用回调将此单例类标记为不在创建 afterSingletonCreation(beanName);
+》》》》》》》》》》》》》》将给定的单例对象添加到该工厂的单例缓存中 addSingleton(beanName, singletonObject);
