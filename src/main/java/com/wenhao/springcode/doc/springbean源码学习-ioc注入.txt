@@ -10,4 +10,3 @@ org.springframework.context.support.GenericApplicationContext.GenericApplication
 》》》》》》》》》registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition()); 此时会进入GenericApplicationContext 中的registerBeanDefinition
 》》》》》》》》》》this.beanFactory.registerBeanDefinition(beanName, beanDefinition); 此时的beanFactory 为DefaultListableBeanFactory 进而调用到registerBeanDefinition 方法
 》》》》》》》》》》》然后放入线程安全的map中，清除缓存。
-
