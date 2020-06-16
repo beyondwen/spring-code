@@ -1,4 +1,4 @@
-package com.wenhao.springcode.bean;
+package com.wenhao.springcode.v1.bean;
 
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;

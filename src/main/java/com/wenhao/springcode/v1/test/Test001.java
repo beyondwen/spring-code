@@ -1,6 +1,6 @@
-package com.wenhao.springcode.test;
+package com.wenhao.springcode.v1.test;
 
-import com.wenhao.springcode.config.MyConfig;
+import com.wenhao.springcode.v1.config.MyConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Test001 {

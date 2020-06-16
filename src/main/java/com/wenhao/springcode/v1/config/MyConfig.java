@@ -1,7 +1,7 @@
-package com.wenhao.springcode.config;
+package com.wenhao.springcode.v1.config;
 
-import com.wenhao.springcode.bean.MyBean;
-import com.wenhao.springcode.processors.MyProcessors;
+import com.wenhao.springcode.v1.bean.MyBean;
+import com.wenhao.springcode.v1.processors.MyProcessors;
 import lombok.Data;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;

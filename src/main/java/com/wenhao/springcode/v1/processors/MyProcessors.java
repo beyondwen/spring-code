@@ -1,4 +1,4 @@
-package com.wenhao.springcode.processors;
+package com.wenhao.springcode.v1.processors;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
